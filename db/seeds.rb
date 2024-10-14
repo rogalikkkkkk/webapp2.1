@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Company.delete_all
+Company.reset_pk_sequence
 Company.create([
                  { name: 'MoGo', location: 'New York' },
                  { name: 'Wirkkle', location: 'London' },
@@ -16,6 +17,7 @@ Company.create([
                ])
 
 Job.delete_all
+Job.reset_pk_sequence
 Job.create([
              { name: 'Sinatra React', place: 'Remote', company_id: 1 },
              { name: 'Ruby React', place: 'Contract', company_id: 2 },
@@ -27,6 +29,7 @@ Job.create([
            ])
 
 Geek.delete_all
+Geek.reset_pk_sequence
 Geek.create([
               { name: "Mike", stack: "Sinatra React", resume: true },
               { name: "Alex", stack: "Ruby React", resume: true },
@@ -40,6 +43,7 @@ Geek.create([
             ])
 
 Apply.delete_all
+Apply.reset_pk_sequence
 Apply.create([
                { job_id: 1, geek_id: 1, read: true, invited: true },
                { job_id: 1, geek_id: 2, read: false, invited: false },

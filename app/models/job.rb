@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
   include ActionController::Serialization
 
+  # TODO: связать таблицы и настроить удаление
   belongs_to :company
   has_many :applies
 

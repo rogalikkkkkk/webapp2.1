@@ -59,6 +59,7 @@ GEM
       activemodel (= 7.2.1)
       activesupport (= 7.2.1)
       timeout (>= 0.4.0)
+    activerecord-reset-pk-sequence (0.2.1)
     activestorage (7.2.1)
       actionpack (= 7.2.1)
       activejob (= 7.2.1)
@@ -239,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activerecord-reset-pk-sequence
   bootsnap
   brakeman
   debug

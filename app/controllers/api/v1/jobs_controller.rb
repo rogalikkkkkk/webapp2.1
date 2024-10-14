@@ -1,5 +1,5 @@
 class Api::V1::JobsController < ApplicationController
-  before_action :set_job, only: [:show, :update, :destroy]
+  before_action :set_job, only: [ :show, :update, :destroy ]
 
   def index
     if params[:company_id]
@@ -8,14 +8,17 @@ class Api::V1::JobsController < ApplicationController
       @jobs = Job.all
     end
 
+    # Фильтрация по названию работы
     if params[:name]
       @jobs = @jobs.where(name: params[:name])
     end
+
+    # Фильтрация по расположению
     if params[:place]
       @jobs = @jobs.where(place: params[:place])
     end
 
-    render json: { jobs: @jobs }, except: [:id, :created_at, :updated_at]
+    render json: { jobs: @jobs }, except: [ :id, :created_at, :updated_at ]
   end
 
   def show
@@ -25,7 +28,7 @@ class Api::V1::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      render json: { job: @job }, status: :created, except: [:id, :created_at, :updated_at]
+      render json: { job: @job }, status: :created, except: [ :id, :created_at, :updated_at ]
     else
       render json: { user: @job.errors, status: :no_content }
     end
