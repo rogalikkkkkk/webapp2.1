@@ -1,4 +1,6 @@
 class Company < ApplicationRecord
+  include ActionController::Serialization
+
   has_many :jobs
 
   validates_associated :jobs

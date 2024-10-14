@@ -1,4 +1,6 @@
 class Job < ApplicationRecord
+  include ActionController::Serialization
+
   belongs_to :company
   has_many :applies
 
