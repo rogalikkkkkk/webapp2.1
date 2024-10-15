@@ -8,11 +8,16 @@ Rails.application.routes.draw do
   scope module: "api" do
     namespace :v1 do
       resources :jobs
+      resources :geeks do
+        get "readed/:geek_id", to: "geeks#readed_by_geek", on: :collection
+        get "accepted/:geek_id", to: "geeks#accepted_applies", on: :collection
+        get "applies/:geek_id", to: "geeks#geek_all_applies", on: :collection
+        put "update_resume/:geek_id", to: "geeks#update_resume", on: :collection
+      end
+      resources :applies
       resources :companies do
         resources :jobs
       end
-      resource :applies
-      resource :geeks
     end
   end
 

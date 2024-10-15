@@ -36,11 +36,8 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def destroy
-    params.permit(:id)
-
-    company = Company.find(params[:id])
-    company.destroy
-    render json: company
+    @company.destroy
+    render json: { deleted_company: @company, status: :success }
   end
 
   def update
