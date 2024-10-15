@@ -36,7 +36,6 @@ class Api::V1::AppliesController < ApplicationController
     end
   end
 
-  # PUT /applies/:id
   def update
     if @apply.update(apply_params)
       render json: @apply
